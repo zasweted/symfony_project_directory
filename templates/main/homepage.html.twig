@@ -6,13 +6,13 @@
 <h1>StarShop</h1>
 
 <div>
-    Browse through {{ numberOfStarships }} starships!
+    Browse through {{ starships|length }} starships!
 </div>
 
 <div>
     <h2>My Ship</h2>
     <table>
-        <tr>
+            <tr>
             <th>
                 Name
             </th>
@@ -44,6 +44,45 @@
                 {{ myShip.status }}
             </td>
         </tr>
+    </table>
+</div>
+<div>
+    <h2>All Ships</h2>
+    <table>
+        {% for starship in starships %}
+            <tr>
+            <th>
+                Name
+            </th>
+            <td>
+                {{ starship.name }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Class
+            </th>
+            <td>
+                {{ starship.class }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Captain
+            </th>
+            <td>
+                {{ starship.captain }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Status
+            </th>
+            <td>
+                {{ starship.status }}
+            </td>
+        </tr>
+        {% endfor %}
     </table>
 </div>
 
