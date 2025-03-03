@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Model\Starship;
+use App\Model\StarshipStatusEnum;
 use Psr\Log\LoggerInterface;
 
 class StarshipRepository
@@ -21,21 +22,23 @@ class StarshipRepository
                 'USS LeafyCruiser (NCC-0001)',
                 'Garden',
                 'Jean-Luc Pickle',
-                'Under construction',
+                StarshipStatusEnum::COMPLETED,
             ),
             new Starship(
                 2,
                 'USS Espresso (NCC-1234)',
                 'Latte',
                 'James T. Quick!',
-                'Repaired',
+                StarshipStatusEnum::IN_PROGRESS,
+
             ),
             new Starship(
                 3,
                 'USS WanderLust (NCC-4321-W)',
                 'Delta Tourist',
                 'Kathryn Journeyweave',
-                'Under construction',
+                StarshipStatusEnum::WAITING,
+
             ),
         ];
     }

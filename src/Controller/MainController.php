@@ -8,16 +8,16 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/')]
+    #[Route('/', name: 'app_homepage')]
     public function homepage(StarshipRepository $starshipRepository)
     {
-        $starships = $starshipRepository->findAll();
-        $myShip = $starships[array_rand($starships)];
+        $ships = $starshipRepository->findAll();
+        $myShip = $ships[array_rand($ships)];
 
         
 
         return $this->render('main/homepage.html.twig', [
-            'starships' => $starships,
+            'ships' => $ships,
             'myShip' => $myShip,
         ]);
     }
